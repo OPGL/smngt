@@ -31,21 +31,20 @@ public class Sysinfo {
     @Serdeable
     public static class CPUInfo {
         private final String processorName;
-        private final List<Map<String, Integer>> cpuUsage;
+        private final double cpuUsage;
+        private final List<Map<String, Double>> coreUsages;
 
         public CPUInfo(CentralProcessor processor) {
-            long[][] previousTicks = new long[processor.getLogicalProcessorCount()][CentralProcessor.TickType.values().length];
             this.processorName = processor.getProcessorIdentifier().getName();
-            this.cpuUsage = new ArrayList<>();
-            long[][] currentTicks = processor.getProcessorCpuLoadTicks();
-            double[] load = processor.getProcessorCpuLoadBetweenTicks(previousTicks);
-
+            this.coreUsages = new ArrayList<Map<String, Double>>();
+            this.cpuUsage = processor.getSystemCpuLoad(500)*100;
+            double[] load = processor.getProcessorCpuLoad(500);
             for (int i = 0; i < load.length; i++) {
-                Map<String, Integer> coreUsage = new HashMap<>();
-                coreUsage.put("cpu" + i, (int) (load[i] * 100));
-                this.cpuUsage.add(coreUsage);
+                Map<String, Double> coreUsage = new HashMap<>();
+                double usagePercentage = load[i] * 100;
+                coreUsage.put("cpu" + i, usagePercentage);
+                this.coreUsages.add(coreUsage);
             }
-            System.arraycopy(currentTicks, 0, previousTicks, 0, currentTicks.length);
         }
     }
 
