@@ -1,32 +1,70 @@
-## Micronaut 4.7.0 Documentation
+# Simple Server Management API
 
-- [User Guide](https://docs.micronaut.io/4.7.0/guide/index.html)
-- [API Reference](https://docs.micronaut.io/4.7.0/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/4.7.0/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+## Compilation
 
-- [Micronaut Maven Plugin documentation](https://micronaut-projects.github.io/micronaut-maven-plugin/latest/)
-## Feature micronaut-aot documentation
+To compile the project, you can use the following commands:
 
-- [Micronaut AOT documentation](https://micronaut-projects.github.io/micronaut-aot/latest/guide/)
+### Build with JAR:
+```bash
+./mvnw package
+```
 
+### Build as a Native Image:
+```bash
+./mvnw package -Dpackaging=native-image
+```
 
-## Feature lombok documentation
+## Overview
 
-- [Micronaut Project Lombok documentation](https://docs.micronaut.io/latest/guide/index.html#lombok)
+This is a program designed for server management. It provides various options for monitoring system resources such as CPU and memory usage, and system information like the OS version. Currently, the program is in active development.
 
-- [https://projectlombok.org/features/all](https://projectlombok.org/features/all)
+## Environment Variables
 
+- **MICRONAUT_SERVER_PORT**: The environment variable used to define the server port. This can be set to configure which port the application will run on.
 
-## Feature serialization-jackson documentation
+## API Endpoints
 
-- [Micronaut Serialization Jackson Core documentation](https://micronaut-projects.github.io/micronaut-serialization/latest/guide/)
+Once the application is running, you can access the following API endpoint:
 
+### 1. `/api/sysinfo` (System Information)
 
-## Feature maven-enforcer-plugin documentation
+This endpoint provides detailed system information including the operating system, CPU, and RAM usage.
 
-- [https://maven.apache.org/enforcer/maven-enforcer-plugin/](https://maven.apache.org/enforcer/maven-enforcer-plugin/)
+**Example Response:**
+```json
+{
+  "os": {
+    "name": "Fedora",
+    "version": "41"
+  },
+  "cpu": {
+    "processorName": "12th Gen Intel(R) Core(TM) i5-12400F",
+    "cpuUsage": [
+      {"cpu0": 6},
+      {"cpu1": 5},
+      {"cpu2": 6},
+      {"cpu3": 5},
+      {"cpu4": 6},
+      {"cpu5": 5},
+      {"cpu6": 6},
+      {"cpu7": 5},
+      {"cpu8": 6},
+      {"cpu9": 5},
+      {"cpu10": 6},
+      {"cpu11": 5}
+    ]
+  },
+  "ram": {
+    "total": 33472913408,
+    "free": 20653191168
+  }
+}
+```
 
+- **OS Information**: Shows the name and version of the operating system.
+- **CPU Usage**: Provides the processor name and the usage of each individual CPU core.
+- **RAM Information**: Displays the total and available RAM in bytes.
 
-# smngt -> Simple Server Managment API
+## Current Status
+
+This project is still under active development, and additional features and improvements will be added in the future.
