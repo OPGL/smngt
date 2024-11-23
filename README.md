@@ -39,7 +39,8 @@ This endpoint provides detailed system information including the operating syste
   },
   "cpu": {
     "processorName": "12th Gen Intel(R) Core(TM) i5-12400F",
-    "cpuUsage": [
+    "cpuUsage": 5,
+    "coreUsages": [
       {"cpu0": 6},
       {"cpu1": 5},
       {"cpu2": 6},
