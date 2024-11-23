@@ -14,6 +14,33 @@ To compile the project, you can use the following commands:
 ./mvnw package -Dpackaging=native-image
 ```
 
+### Build as a docker image
+```bash
+./build_docker.sh
+```
+
+## Usage
+
+### Usage (built with JAR)
+```bash
+java -jar ./target/smngt.jar
+```
+
+### Usage (build as a Native Image)
+```bash
+./target/smngt
+```
+
+### Usage (built as a Docker Image)
+#### docker-compose (no need of building image)
+```bash
+docker compose up
+```
+#### docker run
+```bash
+docker run smngt
+```
+
 ## Overview
 
 This is a program designed for server management. It provides various options for monitoring system resources such as CPU and memory usage, and system information like the OS version. Currently, the program is in active development.
@@ -39,25 +66,51 @@ This endpoint provides detailed system information including the operating syste
   },
   "cpu": {
     "processorName": "12th Gen Intel(R) Core(TM) i5-12400F",
-    "cpuUsage": 5,
+    "cpuUsage": 13.008130081300814,
     "coreUsages": [
-      {"cpu0": 6},
-      {"cpu1": 5},
-      {"cpu2": 6},
-      {"cpu3": 5},
-      {"cpu4": 6},
-      {"cpu5": 5},
-      {"cpu6": 6},
-      {"cpu7": 5},
-      {"cpu8": 6},
-      {"cpu9": 5},
-      {"cpu10": 6},
-      {"cpu11": 5}
+      {
+        "cpu0": 7.8431372549019605
+      },
+      {
+        "cpu1": 8
+      },
+      {
+        "cpu2": 32
+      },
+      {
+        "cpu3": 6.122448979591836
+      },
+      {
+        "cpu4": 4.166666666666666
+      },
+      {
+        "cpu5": 4
+      },
+      {
+        "cpu6": 13.725490196078432
+      },
+      {
+        "cpu7": 6
+      },
+      {
+        "cpu8": 8
+      },
+      {
+        "cpu9": 6
+      },
+      {
+        "cpu10": 6.122448979591836
+      },
+      {
+        "cpu11": 10
+      }
     ]
   },
   "ram": {
-    "total": 33472913408,
-    "free": 20653191168
+    "ramTotal": 33472905216,
+    "ramFree": 15211909120,
+    "swapTotal": 8589930496,
+    "swapUsed": 1310720
   }
 }
 ```

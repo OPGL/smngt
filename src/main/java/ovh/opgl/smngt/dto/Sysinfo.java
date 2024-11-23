@@ -39,7 +39,9 @@ public @Data class Sysinfo {
     @Serdeable
     @NoArgsConstructor
     public static @Data class RAMInfo {
-        private long total;
-        private long free;
+        private long ramTotal;
+        private long ramFree;
+        private long swapTotal;
+        private long swapUsed;
     }
 }

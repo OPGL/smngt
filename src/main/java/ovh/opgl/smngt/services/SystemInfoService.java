@@ -40,8 +40,10 @@ public class SystemInfoService {
         osInfo.setVersion(os.getVersionInfo().getVersion());
 
         var ramInfo = new Sysinfo.RAMInfo();
-        ramInfo.setTotal(memory.getTotal());
-        ramInfo.setFree(memory.getAvailable());
+        ramInfo.setRamTotal(memory.getTotal());
+        ramInfo.setRamFree(memory.getAvailable());
+        ramInfo.setSwapTotal(memory.getVirtualMemory().getSwapTotal());
+        ramInfo.setSwapUsed(memory.getVirtualMemory().getSwapUsed());
 
         return new Sysinfo(osInfo, cpuInfo, ramInfo);
     }
