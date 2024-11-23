@@ -1,0 +1,10 @@
+micronaut:
+  application:
+    name: smngt
+  server:
+    cors:
+      enabled: true
+      configurations:
+        web:
+          allowed-methods:
+            - GET

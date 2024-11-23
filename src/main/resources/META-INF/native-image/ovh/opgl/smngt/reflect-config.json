@@ -1,0 +1,22 @@
+[
+{
+  "name":"com.sun.jna.CallbackProxy",
+  "methods":[{"name":"callback","parameterTypes":["java.lang.Object[]"] }]
+},
+{
+  "name":"com.sun.jna.platform.linux.Udev$UdevContext",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.jna.platform.linux.Udev$UdevDevice",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.jna.platform.linux.Udev$UdevEnumerate",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.jna.platform.linux.Udev$UdevListEntry",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+}
+]
