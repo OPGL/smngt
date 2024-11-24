@@ -17,6 +17,8 @@ public class SystemInfoService {
         var os = si.getOperatingSystem();
         var processor = si.getHardware().getProcessor();
         var memory = si.getHardware().getMemory();
+        var fileStores = os.getFileSystem().getFileStores();
+
 
         var cpuInfo = new Sysinfo.CPUInfo();
 
@@ -38,6 +40,7 @@ public class SystemInfoService {
         var osInfo = new Sysinfo.OSInfo();
         osInfo.setName(os.getFamily());
         osInfo.setVersion(os.getVersionInfo().getVersion());
+        osInfo.setUptime(os.getSystemUptime());
 
         var ramInfo = new Sysinfo.RAMInfo();
         ramInfo.setRamTotal(memory.getTotal());
@@ -45,6 +48,18 @@ public class SystemInfoService {
         ramInfo.setSwapTotal(memory.getVirtualMemory().getSwapTotal());
         ramInfo.setSwapUsed(memory.getVirtualMemory().getSwapUsed());
 
-        return new Sysinfo(osInfo, cpuInfo, ramInfo);
+        var diskInfo = new Sysinfo.DiskInfo();
+
+        long total = 0;
+        long free = 0;
+        for (var disk : fileStores){
+            total += disk.getTotalSpace();
+            free += disk.getFreeSpace();
+
+        }
+        diskInfo.setTotal(total);
+        diskInfo.setFree(free);
+
+        return new Sysinfo(osInfo, cpuInfo, ramInfo, diskInfo);
     }
 }

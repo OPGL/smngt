@@ -17,6 +17,7 @@ public @Data class Sysinfo {
     private OSInfo os;
     private CPUInfo cpu;
     private RAMInfo ram;
+    private DiskInfo disk;
 
     @Introspected
     @Serdeable
@@ -33,6 +34,7 @@ public @Data class Sysinfo {
     public static @Data class OSInfo {
         private String name;
         private String version;
+        private long uptime;
     }
 
     @Introspected
@@ -43,5 +45,13 @@ public @Data class Sysinfo {
         private long ramFree;
         private long swapTotal;
         private long swapUsed;
+    }
+
+    @Introspected
+    @Serdeable
+    @NoArgsConstructor
+    public static @Data class DiskInfo {
+        private long total;
+        private long free;
     }
 }

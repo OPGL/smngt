@@ -62,62 +62,68 @@ This endpoint provides detailed system information including the operating syste
 {
   "os": {
     "name": "Fedora",
-    "version": "41"
+    "version": "41",
+    "uptime": 16036
   },
   "cpu": {
     "processorName": "12th Gen Intel(R) Core(TM) i5-12400F",
-    "cpuUsage": 13.008130081300814,
+    "cpuUsage": 6.0200668896321075,
     "coreUsages": [
       {
-        "cpu0": 7.8431372549019605
+        "cpu0": 6.122448979591836
       },
       {
-        "cpu1": 8
+        "cpu1": 2
       },
       {
-        "cpu2": 32
+        "cpu2": 8
       },
       {
         "cpu3": 6.122448979591836
       },
       {
-        "cpu4": 4.166666666666666
+        "cpu4": 4
       },
       {
-        "cpu5": 4
+        "cpu5": 2.0408163265306123
       },
       {
-        "cpu6": 13.725490196078432
+        "cpu6": 2.083333333333333
       },
       {
-        "cpu7": 6
+        "cpu7": 2.0408163265306123
       },
       {
-        "cpu8": 8
+        "cpu8": 8.16326530612245
       },
       {
-        "cpu9": 6
+        "cpu9": 5.88235294117647
       },
       {
-        "cpu10": 6.122448979591836
+        "cpu10": 4
       },
       {
-        "cpu11": 10
+        "cpu11": 5.88235294117647
       }
     ]
   },
   "ram": {
-    "ramTotal": 33472905216,
-    "ramFree": 15211909120,
+    "ramTotal": 33472909312,
+    "ramFree": 13626728448,
     "swapTotal": 8589930496,
-    "swapUsed": 1310720
+    "swapUsed": 707788800
+  },
+  "disk": {
+    "total": 1552249749504,
+    "free": 1172867170304
   }
 }
 ```
 
 - **OS Information**: Shows the name and version of the operating system.
-- **CPU Usage**: Provides the processor name and the usage of each individual CPU core.
-- **RAM Information**: Displays the total and available RAM in bytes.
+- **CPU Usage**: Provides the processor name and the usage of entire cpu and each individual CPU core.
+- **RAM Information**: Displays the total and available RAM/SWAP in bytes.
+- **Disk Information**: Displays the total and available Disk space in bytes.
 
 ## Current Status
 
