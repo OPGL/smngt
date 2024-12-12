@@ -124,7 +124,3 @@ This endpoint provides detailed system information including the operating syste
 - **CPU Usage**: Provides the processor name and the usage of entire cpu and each individual CPU core.
 - **RAM Information**: Displays the total and available RAM/SWAP in bytes.
 - **Disk Information**: Displays the total and available Disk space in bytes.
-
-## Current Status
-
-This project is still under active development, and additional features and improvements will be added in the future.
